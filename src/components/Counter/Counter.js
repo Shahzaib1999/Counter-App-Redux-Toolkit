@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decreament, increament, reset } from "../../store/counterSlice";
 
 const Counter = (props) => {
-    const [counter, setCounter] = useState(0);
+    // mapStateToProps
+    const counter = useSelector((state) => {
+        return state.counter.counter
+    });
+
+    // mapDispatchToProps
+    const dispatch = useDispatch();
+
     return (
         <div>
             <div>
                 <h2>Counter: {counter}</h2>
             </div>
-            <div>
-                <button className="addBtn" onClick={() => setCounter(counter + 1)}>Add</button>
-                <button className="subBtn"  onClick={()=>setCounter(counter-1)}>Subtract</button>
+            <div className="btnWrapper">
+                <button className="addBtn" onClick={() => dispatch(increament())}>Add</button>
+                <button className="subBtn" onClick={() => dispatch(reset())}>Reset</button>
+                <button className="subBtn" onClick={() => dispatch(decreament())}>Subtract</button>
             </div>
         </div>
     );

@@ -3,6 +3,10 @@
   margin-top: 80px;
 }
 
+.btnWrapper{
+  margin-top: 50px;
+}
+
 .addBtn{
   background: rgb(48, 152, 236);
   color: #fff;
